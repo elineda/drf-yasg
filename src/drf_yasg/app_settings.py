@@ -31,6 +31,7 @@ SWAGGER_DEFAULTS = {
 
     'DEFAULT_INFO': None,
     'DEFAULT_API_URL': None,
+    'DEFAULT_SCHEME': "https",
 
     'USE_SESSION_AUTH': True,
     'SECURITY_DEFINITIONS': {

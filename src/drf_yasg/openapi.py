@@ -9,6 +9,7 @@ from django.utils.functional import Promise
 from inflection import camelize
 
 from .utils import dict_has_ordered_keys, filter_none, force_real_str
+from .app_settings import swagger_settings
 
 try:
     from collections import abc as collections_abc
@@ -257,7 +258,7 @@ class Swagger(SwaggerDict):
             url = urlparse.urlparse(_url)
             assert url.netloc and url.scheme, "if given, url must have both schema and netloc"
             self.host = url.netloc
-            self.schemes = [url.scheme]
+            self.schemes = [swagger_settings.DEFAULT_SCHEME, url.scheme]
 
         self.base_path = self.get_base_path(get_script_prefix(), _prefix)
         self.consumes = consumes
